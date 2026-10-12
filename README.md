@@ -1,17 +1,20 @@
-# madproject
+# Quran Learning App (MAD Project 1)
 
-A new Flutter project.
+A feature-rich Flutter application designed for online Quran education, interactive learning, assignment tracking, and student-teacher collaboration.
 
-## Getting Started
+## 📖 Overview
+The **Quran Learning App** provides a unified mobile platform tailored for both Quran instructors (Teachers) and learners (Students). The app features an intuitive role-based workflow, interactive lessons, progress tracking, and custom animated UI components for an engaging user experience.
 
-This project is a starting point for a Flutter application.
+## ✨ Core Features
+- **Dual-Role Authentication**: Dedicated portals for Teachers and Students with persistent session management.
+- **Course & Lesson Management**: Structured Islamic and Quranic studies modules.
+- **Interactive Quizzes & Assessments**: Real-time feedback, grading, and score calculation.
+- **Assignment Submissions**: Submission tracking with teacher review and remarks.
+- **Fluid Animations**: Custom `AnimatedContainer` and `AnimatedCrossFade` transitions for modern micro-interactions.
 
-A few resources to get you started if this is your first Flutter project:
+## 🏗️ Architecture & Tech Stack
+- **Framework**: Flutter 3.x (Dart 3.x)
+- **Local Storage**: `shared_preferences` for offline data persistence
+- **State Management**: Reactive StatefulWidget architecture with modular Store pattern
+- **Design System**: Emerald Green & Islamic Gold aesthetic with Material 3 styling
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
