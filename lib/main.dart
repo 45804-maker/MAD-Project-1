@@ -296,28 +296,33 @@ String lessonLabel(String t) => t == 'lecture' ? 'Lecture' : t == 'pdf' ? 'PDF n
 void snack(BuildContext c, String m) => ScaffoldMessenger.of(c).showSnackBar(SnackBar(content: Text(m), behavior: SnackBarBehavior.floating));
 
 // ======================= VALIDATORS =======================
+/// Validates user full name ensuring acceptable length and character formatting.
 String? vName(String? v) {
   final t = v?.trim() ?? '';
   if (t.isEmpty) return 'Please enter your full name';
-  if (t.length < 3) return 'Name must be at least 3 characters';
-  if (!RegExp(r"^[A-Za-z .'-]+$").hasMatch(t)) return 'Name can contain letters only';
+  if (t.length < 3) return 'Name must be at least 3 characters long';
+  if (!RegExp(r"^[A-Za-z .'-]+$").hasMatch(t)) return 'Name can contain letters, spaces, and hyphens only';
   return null;
 }
 
+/// Validates email format adhering to standard Gmail requirements.
 String? vEmail(String? v) {
   final t = v?.trim() ?? '';
-  if (t.isEmpty) return 'Please enter your email';
-  if (!RegExp(r'^[\w.+-]+@gmail\.com$').hasMatch(t)) return 'Use a valid @gmail.com email';
+  if (t.isEmpty) return 'Please enter your email address';
+  if (!RegExp(r'^[\w.+-]+@gmail\.com$', caseSensitive: false).hasMatch(t)) {
+    return 'Please enter a valid @gmail.com email address';
+  }
   return null;
 }
 
+/// Enforces password complexity (minimum 8 characters, upper, lower, and digit).
 String? vPass(String? v) {
   final t = v ?? '';
-  if (t.isEmpty) return 'Please enter a password';
-  if (t.length < 8) return 'Password needs at least 8 characters';
-  if (!RegExp(r'[A-Z]').hasMatch(t)) return 'Add at least one uppercase letter';
-  if (!RegExp(r'[a-z]').hasMatch(t)) return 'Add at least one lowercase letter';
-  if (!RegExp(r'[0-9]').hasMatch(t)) return 'Add at least one number';
+  if (t.isEmpty) return 'Please enter a secure password';
+  if (t.length < 8) return 'Password must be at least 8 characters long';
+  if (!RegExp(r'[A-Z]').hasMatch(t)) return 'Password must contain at least one uppercase letter (A-Z)';
+  if (!RegExp(r'[a-z]').hasMatch(t)) return 'Password must contain at least one lowercase letter (a-z)';
+  if (!RegExp(r'[0-9]').hasMatch(t)) return 'Password must contain at least one numeric digit (0-9)';
   return null;
 }
 
