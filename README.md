@@ -18,3 +18,11 @@ The **Quran Learning App** provides a unified mobile platform tailored for both 
 - **State Management**: Reactive StatefulWidget architecture with modular Store pattern
 - **Design System**: Emerald Green & Islamic Gold aesthetic with Material 3 styling
 
+## 🎨 Interactive Animations Showcase
+The app uses customized implicit animation widgets to provide tactile feedback and elevate user engagement:
+- **`Tap` Animation**: An interactive container wrapper utilizing `AnimatedScale` for subtle tactile bounce and smooth recovery on user interaction.
+- **`AuthCrossFade`**: Smooth `AnimatedCrossFade` transitions switching seamlessly between Login and Sign Up screens without page reloads.
+- **`DoneCrossFade`**: Real-time lecture completion indicator transforming from an action button into a completed status chip with custom easing curves.
+- **`BookCover`**: Dynamic 3D-styled book covers with gradients reflecting course progress and status.
+
+
