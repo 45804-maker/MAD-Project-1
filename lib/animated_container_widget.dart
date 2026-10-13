@@ -36,13 +36,13 @@ class _TapState extends State<Tap> {
     busy = true;
     widget.onStart?.call();
     setState(() {
-      scale = 1.1; // thora bara
-      if (widget.tint) ti = (ti + 1) % tints.length; // colour badlo
+      scale = 1.06; // subtle smooth tactile enlargement
+      if (widget.tint) ti = (ti + 1) % tints.length; // cycle tint color
     });
-    await Future.delayed(const Duration(milliseconds: 220));
-    if (!mounted) return;
-    setState(() => scale = 1.0); // wapas normal
     await Future.delayed(const Duration(milliseconds: 180));
+    if (!mounted) return;
+    setState(() => scale = 1.0); // return to normal scale smoothly
+    await Future.delayed(const Duration(milliseconds: 150));
     busy = false;
     if (mounted) widget.onTap?.call();
   }
@@ -53,8 +53,8 @@ class _TapState extends State<Tap> {
     onTap: press,
     child: AnimatedScale(
       scale: scale,
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
+      duration: const Duration(milliseconds: 180),
+      curve: Curves.easeOutCubic,
       child: widget.tint
           ? Stack(clipBehavior: Clip.none, children: [
         widget.child,
