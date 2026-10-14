@@ -14,7 +14,10 @@ class AuthCrossFade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AnimatedCrossFade(
-    duration: const Duration(milliseconds: 400),
+    duration: const Duration(milliseconds: 350),
+    firstCurve: Curves.easeInOutCubic,
+    secondCurve: Curves.easeInOutCubic,
+    sizeCurve: Curves.easeInOutCubic,
     crossFadeState: showLogin ? CrossFadeState.showFirst : CrossFadeState.showSecond,
     // pehli state: Login
     firstChild: Column(children: [
@@ -27,9 +30,15 @@ class AuthCrossFade extends StatelessWidget {
       AppField(email, 'Email (@gmail.com)', Icons.email, kt: TextInputType.emailAddress),
       AppField(pass, 'Password', Icons.lock, pass: true),
       AppField(conf, 'Confirm password', Icons.lock_outline, pass: true),
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text('Min 8 characters with uppercase, lowercase and a number.', style: TextStyle(color: Colors.grey.shade600, fontSize: 12)),
+      Padding(
+        padding: const EdgeInsets.only(top: 4, left: 4),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Min 8 characters with uppercase, lowercase, and a number.',
+            style: TextStyle(color: Colors.grey.shade700, fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        ),
       ),
     ]),
   );
@@ -43,9 +52,17 @@ class DoneCrossFade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AnimatedCrossFade(
-    duration: const Duration(milliseconds: 500),
+    duration: const Duration(milliseconds: 400),
+    firstCurve: Curves.easeInOut,
+    secondCurve: Curves.easeInOut,
+    sizeCurve: Curves.easeInOut,
     crossFadeState: done ? CrossFadeState.showSecond : CrossFadeState.showFirst,
     firstChild: AnimButton('Mark as completed', onDone),
-    secondChild: const Chip(label: Text('Completed'), avatar: Icon(Icons.check, size: 16, color: green)),
+    secondChild: const Chip(
+      label: Text('Completed', style: TextStyle(fontWeight: FontWeight.w600, color: green)),
+      avatar: Icon(Icons.check_circle_rounded, size: 18, color: green),
+      backgroundColor: Color(0xFFE8F5E9),
+      side: BorderSide(color: Color(0xFFC8E6C9)),
+    ),
   );
 }
