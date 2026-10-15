@@ -25,4 +25,19 @@ The app uses customized implicit animation widgets to provide tactile feedback a
 - **`DoneCrossFade`**: Real-time lecture completion indicator transforming from an action button into a completed status chip with custom easing curves.
 - **`BookCover`**: Dynamic 3D-styled book covers with gradients reflecting course progress and status.
 
+## 👥 Role Workflows & Modules
+
+### 🎓 Student Portal
+1. **Explore Courses**: Browse enrolled Quranic recitation, Tajweed, and Tafseer modules.
+2. **Interactive Lessons**: Read notes, listen/watch lectures, and mark lessons as complete with instant feedback.
+3. **Tasks & Submissions**: View assigned coursework, upload responses, and track real-time grading and teacher remarks.
+4. **Performance Record**: Track attendance rate, average score, and cumulative lectures completed.
+
+### 🧑‍🏫 Teacher Management Portal
+1. **Course Creation & Updates**: Add new lessons, lectures, and resources for students.
+2. **Assignment Publishing**: Distribute tasks with deadlines and point allocations.
+3. **Submissions Review**: Review submitted assignments, grade out of 100, and provide constructive feedback.
+4. **Student Directory**: Monitor roster of enrolled students and overall engagement.
+
+
 
