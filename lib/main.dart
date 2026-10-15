@@ -1064,13 +1064,15 @@ class RecordPage extends StatelessWidget {
   Widget stat(String v, String l, IconData i) => Expanded(
     child: Tap(tint: true,
       child: Card(
+        elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Column(children: [
-            Icon(i, color: gold),
+            Icon(i, color: gold, size: 26),
             const SizedBox(height: 6),
             Text(v, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: green)),
-            Text(l, style: const TextStyle(fontSize: 12)),
+            const SizedBox(height: 2),
+            Text(l, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
           ]),
         ),
       ),
@@ -1083,14 +1085,18 @@ class RecordPage extends StatelessWidget {
     return ListView(padding: const EdgeInsets.all(16), children: [
       QuickButtons(studentRecordBtns),
       const SizedBox(height: 14),
-      Row(children: [stat('92%', 'Attendance', Icons.event_available), stat('$avg', 'Avg marks', Icons.grade), stat('${store.doneLessons}', 'Lectures done', Icons.check_circle)]),
-      const SizedBox(height: 8),
+      Row(children: [
+        stat('92%', 'Attendance', Icons.event_available_rounded),
+        stat('$avg%', 'Avg Marks', Icons.grade_rounded),
+        stat('${store.doneLessons}', 'Lessons Done', Icons.check_circle_rounded),
+      ]),
+      const SizedBox(height: 12),
       const Text('Past courses', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
       const Card(child: ListTile(leading: Icon(Icons.verified, color: green), title: Text('Arabic Alphabet'), subtitle: Text('Completed • 91/100\n"Excellent makharij."'), isThreeLine: true)),
-      const SizedBox(height: 8),
+      const SizedBox(height: 12),
       const Text('Marks & feedback', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
       if (graded.isEmpty) const Padding(padding: EdgeInsets.all(20), child: Center(child: Text('No graded assignments yet'))),
-      for (final g in graded) Tap(tint: true, child: Card(child: ListTile(leading: const Icon(Icons.star, color: gold), title: Text(g.$1.title), subtitle: Text('${g.$2.marks}/100 • ${g.$2.feedback ?? ""}')))),
+      for (final g in graded) Tap(tint: true, child: Card(elevation: 1.5, child: ListTile(leading: const Icon(Icons.star, color: gold), title: Text(g.$1.title), subtitle: Text('${g.$2.marks}/100 • ${g.$2.feedback ?? ""}')))),
     ]);
   });
 }
