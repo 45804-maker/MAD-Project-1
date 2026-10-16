@@ -1217,19 +1217,33 @@ void gradeDialog(BuildContext context, Sub s) {
   showDialog(
     context: context,
     builder: (ctx) => AlertDialog(
-      title: Text('Grade ${s.student}'),
-      content: Column(mainAxisSize: MainAxisSize.min, children: [
-        TextField(controller: m, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Marks (0 - 100)')),
-        TextField(controller: f, maxLines: 2, decoration: const InputDecoration(labelText: 'Feedback')),
-      ]),
+      title: Text('Grade Assignment: ${s.student}'),
+      content: SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(color: Colors.grey.shade100, borderRadius: BorderRadius.circular(8)),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const Text('Student Submission:', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: green)),
+              const SizedBox(height: 4),
+              Text(s.note.isEmpty ? '(No notes provided)' : s.note, style: const TextStyle(fontSize: 13)),
+            ]),
+          ),
+          const SizedBox(height: 12),
+          TextField(controller: m, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Marks (0 - 100)', hintText: 'e.g. 85', border: OutlineInputBorder())),
+          const SizedBox(height: 10),
+          TextField(controller: f, maxLines: 2, decoration: const InputDecoration(labelText: 'Teacher Feedback', hintText: 'Write feedback remarks...', border: OutlineInputBorder())),
+        ]),
+      ),
       actions: [
-        AnimButton('Cancel', () => Navigator.pop(ctx), width: 100, height: 44),
-        AnimButton('Save', () {
+        AnimButton('Cancel', () => Navigator.pop(ctx), width: 90, height: 42),
+        AnimButton('Save Grade', () {
           final n = int.tryParse(m.text.trim());
-          if (n == null || n < 0 || n > 100) return snack(ctx, 'Marks must be between 0 and 100');
+          if (n == null || n < 0 || n > 100) return snack(ctx, 'Marks must be a number between 0 and 100');
           store.grade(s, n, f.text.trim());
           Navigator.pop(ctx);
-        }, width: 100, height: 44),
+          snack(context, 'Grade saved successfully for ${s.student}');
+        }, width: 110, height: 42),
       ],
     ),
   ).whenComplete(() {
