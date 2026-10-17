@@ -345,28 +345,34 @@ class BookCover extends StatelessWidget {
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(4),
           bottomLeft: Radius.circular(4),
-          topRight: Radius.circular(12),
-          bottomRight: Radius.circular(12),
+          topRight: Radius.circular(14),
+          bottomRight: Radius.circular(14),
         ),
-        boxShadow: [BoxShadow(color: Colors.black.withAlpha(60), blurRadius: size * 0.12, offset: Offset(size * 0.04, size * 0.06))],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withAlpha(55), blurRadius: size * 0.14, offset: Offset(size * 0.04, size * 0.07)),
+          BoxShadow(color: c.c1.withAlpha(40), blurRadius: size * 0.08, offset: Offset(0, size * 0.03)),
+        ],
       ),
       child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         // book ki spine
         Container(
           width: size * 0.09,
-          decoration: BoxDecoration(color: Colors.black.withAlpha(60), borderRadius: const BorderRadius.horizontal(left: Radius.circular(4))),
+          decoration: BoxDecoration(color: Colors.black.withAlpha(50), borderRadius: const BorderRadius.horizontal(left: Radius.circular(4))),
         ),
         Expanded(
           child: Container(
             margin: EdgeInsets.all(size * 0.07),
-            decoration: BoxDecoration(border: Border.all(color: gold, width: big ? 1.5 : 1), borderRadius: BorderRadius.circular(6)),
+            decoration: BoxDecoration(
+              border: Border.all(color: gold.withAlpha(220), width: big ? 1.6 : 1),
+              borderRadius: BorderRadius.circular(6),
+            ),
             child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Icon(c.icon, color: gold, size: size * 0.28),
               if (big) ...[
                 SizedBox(height: size * 0.06),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: size * 0.05),
-                  child: Text(c.title, textAlign: TextAlign.center, maxLines: 3, overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.white, fontSize: size * 0.1, fontWeight: FontWeight.bold)),
+                  child: Text(c.title, textAlign: TextAlign.center, maxLines: 3, overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.white, fontSize: size * 0.1, fontWeight: FontWeight.bold, letterSpacing: 0.2)),
                 ),
                 SizedBox(height: size * 0.05),
                 Container(width: size * 0.25, height: 2, color: gold),
