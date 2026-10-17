@@ -39,5 +39,18 @@ The app uses customized implicit animation widgets to provide tactile feedback a
 3. **Submissions Review**: Review submitted assignments, grade out of 100, and provide constructive feedback.
 4. **Student Directory**: Monitor roster of enrolled students and overall engagement.
 
+## 📁 Repository Structure
+```text
+lib/
+├── main.dart                      # Core app initialization, routing, screens & reactive store
+├── animated_container_widget.dart # Custom AnimatedContainer & AnimatedScale components
+└── animated_cross_fade_widget.dart# Implicit AnimatedCrossFade transitions for forms & chips
+android/                           # Android native configuration & Gradle scripts
+ios/                               # iOS project files & AppFramework configurations
+web/                               # Progressive Web App assets and HTML entry
+test/                              # Flutter unit & widget integration tests
+```
+
+
 
 
