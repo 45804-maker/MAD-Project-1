@@ -211,27 +211,47 @@ class Store extends ChangeNotifier {
   SharedPreferences? _p;
 
   Future<void> load() async {
-    _p = await SharedPreferences.getInstance();
-    users = (_p!.getStringList('users') ?? []).map(User.dec).toList();
+    try {
+      _p = await SharedPreferences.getInstance();
+      final raw = _p?.getStringList('users') ?? [];
+      users = raw.map((item) {
+        try {
+          return User.dec(item);
+        } catch (_) {
+          return null;
+        }
+      }).whereType<User>().toList();
+    } catch (_) {
+      users = [];
+    }
+    notifyListeners();
   }
 
   String? signUp(User u) {
-    if (users.any((x) => x.email == u.email)) return 'This email is already registered. Please login.';
+    if (users.any((x) => x.email.toLowerCase() == u.email.toLowerCase())) {
+      return 'This email is already registered. Please login.';
+    }
     users.add(u);
     _p?.setStringList('users', users.map((x) => x.enc()).toList());
+    notifyListeners();
     return null;
   }
 
   String? login(String email, String pass, String role) {
-    final m = users.where((x) => x.email == email).toList();
+    final normalized = email.trim().toLowerCase();
+    final m = users.where((x) => x.email.toLowerCase() == normalized).toList();
     if (m.isEmpty) return 'No account found. Please sign up first.';
     if (m.first.role != role) return 'This email is registered as a ${m.first.role}.';
     if (m.first.pass != pass) return 'Incorrect password.';
     user = m.first;
+    notifyListeners();
     return null;
   }
 
-  void logout() => user = null;
+  void logout() {
+    user = null;
+    notifyListeners();
+  }
   String get me => user?.name ?? '';
   String get email => user?.email ?? '';
 
