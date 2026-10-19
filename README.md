@@ -51,6 +51,34 @@ web/                               # Progressive Web App assets and HTML entry
 test/                              # Flutter unit & widget integration tests
 ```
 
+## 🚀 Getting Started & Installation
+
+### Prerequisites
+- Flutter SDK (`^3.5.0` or later)
+- Dart SDK (`^3.5.0` or later)
+- Android Studio / VS Code with Flutter extension
+- An Android Device / Emulator or Chrome browser
+
+### Installation Steps
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/45804-maker/MAD-Project-1.git
+   cd MAD-Project-1
+   ```
+2. **Install project dependencies:**
+   ```bash
+   flutter pub get
+   ```
+3. **Run the application:**
+   ```bash
+   flutter run
+   ```
+4. **Execute tests:**
+   ```bash
+   flutter test
+   ```
+
+
 
 
 
