@@ -78,6 +78,24 @@ test/                              # Flutter unit & widget integration tests
    flutter test
    ```
 
+## 📋 Release Changelog & Development Milestones
+
+### Version 1.0.0 (October 2026)
+- **Oct 11, 2026**: Project initialized with Flutter 3 skeleton and fundamental assets.
+- **Oct 12, 2026**: Architectural blueprint established; enhanced authentication validators with strict Gmail & password security checks.
+- **Oct 13, 2026**: Integrated implicit animation system featuring tactile `Tap` feedback and interactive card transitions.
+- **Oct 14, 2026**: Enhanced `AuthCrossFade` and `DoneCrossFade` with cubic easing curves and accessible responsive sizing.
+- **Oct 15, 2026**: Implemented student performance tracking cards and graded coursework summaries.
+- **Oct 16, 2026**: Added teacher assignment grading workflow, score validation (0-100), and remarks dialog.
+- **Oct 17, 2026**: Elevated `BookCover` aesthetics with layered gold foil borders and realistic spine drop shadows.
+- **Oct 18, 2026**: Fortified `Store` state management with defensive JSON parsing and real-time subscriber notifications.
+- **Oct 19, 2026**: Configured comprehensive test suite verifying root widget hierarchy, theme binding, and screen routing.
+- **Oct 20, 2026**: Cleaned up documentation, finalized architecture diagrams, and published v1.0.0 milestone.
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
 
 
 
