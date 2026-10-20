@@ -10,15 +10,17 @@ const grad = LinearGradient(colors: [green, light], begin: Alignment.topLeft, en
 
 // =====================================================================
 //  ANIMATED CONTAINER WIDGETS
-//  Is file ke sab widgets AnimatedContainer / AnimatedScale use karte hain.
+//  Modular components utilizing AnimatedContainer and AnimatedScale.
 // =====================================================================
 
-/// Har tap par widget thora sa bara hota hai (colour bhi badalta hai) aur phir wapas normal ho jata hai.
-/// onStart: tap shuru hote hi chalta hai, onTap: animation ke baad chalta hai.
+/// An interactive container wrapper that responds to taps with tactile scaling and optional tint transitions.
+/// - [onStart]: Triggered synchronously as the touch down event begins.
+/// - [onTap]: Triggered upon animation cycle completion.
+/// - [tint]: When enabled, cycles through predefined tint palettes on consecutive taps.
 class Tap extends StatefulWidget {
   final Widget child;
   final VoidCallback? onTap, onStart;
-  final bool tint; // true: click par card ka colour badalta hai
+  final bool tint;
   final double radius;
   const Tap({super.key, required this.child, this.onTap, this.onStart, this.tint = false, this.radius = 14});
   @override
